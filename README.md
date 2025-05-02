@@ -1,8 +1,22 @@
-- 👋 Hi, I’m @Katleho-Nyoni
-- 👀 I’m mainly interested in the theory & applications of mathematics & statistics,
- as well as applications of, and innovative ideas in tech.
-- 🌱 I’m currently learning C++, as well as web development & Artificial Intelligence(AI).
-- 💞️ I’m looking forward to collaborate on projects using HTML & CSS, R/RStudio, Manim(Python) & later C++.
+# PROJECTS
+
+This repo holds some of the projects I have done to showcase my learning journey and experience. These projects were done in the following programming languages :
+- R / RStudio
+- Power BI.
+
+## PROJECTS DESCRIPTION
+#### 1. BMD Analysis <htt>
+  The following
+
+## ABOUT ME
+
+ I’m mainly interested in both the theory & applications of Mathematics & Statistics, as well as applications of, and innovative ideas in tech. 
+ I’m currently learning C++, as well as Web Development & Artificial Intelligence(AI). I’m looking forward to collaborate on projects using 
+ - HTML & CSS 
+ - R/RStudio, 
+ - Manim(Python)
+ - PostgreSQL/SQL
+ - & later C++.
 
   [ You can also hit me up for any crazy idea or project, im always up for challenges. No illegal stuff🥴]
 
