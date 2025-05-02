@@ -5,8 +5,13 @@ This repo holds some of the projects I have done to showcase my learning journey
 - Power BI.
 
 ## PROJECTS DESCRIPTION
-#### 1. BMD Analysis <htt>
+#### 1. BMD Analysis
+<!---
+[BMD Analysis](#BMD Analysis.pdf)
   The following
+  --->
+#### 2. Employee's Satisfaction
+#### 3. Finance Dashboard
 
 ## ABOUT ME
 
