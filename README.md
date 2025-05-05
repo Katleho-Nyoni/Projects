@@ -1,4 +1,5 @@
 # PROJECTS
+![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white) ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
 This repo holds some of the projects I have done to showcase my learning journey and experience. These projects were done in the following programming languages :
 - R / RStudio
@@ -11,7 +12,7 @@ This project uses the most recent and effective method of dealing with missing d
 The analyses investigates how gender and education affects the happiness of an emplpoyee at a certain company, using Data Analysis techniques and one similar to A/B testing.
 #### 3. Finance Dashboard
 Using Power BI, I was able to create an interactive dashboard that a team can constantly update with ease and consult to make decisions.
-
+<!---
 ## ABOUT ME
 
  I’m mainly interested in both the theory & applications of Mathematics & Statistics, as well as applications of, and innovative ideas in tech. 
@@ -28,7 +29,13 @@ Using Power BI, I was able to create an interactive dashboard that a team can co
 
 - Enjoy the rest of your day🤟🏾
 
-<!---
+
 Katleho-Nyoni/Katleho-Nyoni is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
+
+
+---
+[![](https://visitcount.itsvg.in/api?id=Katleho-Nyoni&icon=0&color=0)](https://visitcount.itsvg.in)
+
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
