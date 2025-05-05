@@ -4,14 +4,13 @@ This repo holds some of the projects I have done to showcase my learning journey
 - R / RStudio
 - Power BI.
 
-## PROJECTS DESCRIPTION
+## BRIEF DESCRIPTION
 #### 1. BMD Analysis
-<!---
-[BMD Analysis](#BMD Analysis.pdf)
-  The following
-  --->
+This project uses the most recent and effective method of dealing with missing data and recovering(predicting) 25% of the data that was missing, greatly improving the quality of the data and reliability of future tests to be ran on that dataset.
 #### 2. Employee's Satisfaction
+The analyses investigates how gender and education affects the happiness of an emplpoyee at a certain company, using Data Analysis techniques and one similar to A/B testing.
 #### 3. Finance Dashboard
+Using Power BI, I was able to create an interactive dashboard that a team can constantly update with ease and consult to make decisions.
 
 ## ABOUT ME
 
