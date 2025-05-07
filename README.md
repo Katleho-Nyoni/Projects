@@ -2,7 +2,8 @@
 ![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white) ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
 ![](dashboard.png)
- 
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://choosealicense.com/licenses/mit/)
+
 This repo holds some of the projects I have done to showcase my learning journey and experience. These projects were done in the following programming languages :
 - R / RStudio
 - Power BI.
