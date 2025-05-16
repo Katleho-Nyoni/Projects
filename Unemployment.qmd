@@ -43,7 +43,8 @@ $$
 Consequently, the probabilistic random variable representing your chance of employment is 
 $$
 P(\text{Employed}) =1- \left(\frac{99}{100}\right)^A.
-$$ The table below models the scenario above
+$$ 
+The table below models the scenario above
 
 ```{r}
 #| echo: false
