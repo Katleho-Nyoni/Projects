@@ -1,0 +1,154 @@
+---
+title: "Will I eventually be Employed?"
+subtitle: "A Mathematical Approach"
+author: "Katleho Nyoni"
+format: docx
+editor: visual
+---
+
+## Introduction
+
+Unemployment has caused devastation not only to new graduates, but also to experienced individuals on a global scale. This has led to many individuals to think that there are no jobs, their field is saturated or worse — that they're just not enough. While some get employed before they graduate, others wait years for their first employment after graduation. As stressed as you are, you're probably wondering whether you'll eventually be employed, and if so, when will this be. Venture with me as I use mathematics to answer the former. The latter we'll leave to God.
+
+Initially, I thought it would be great to use an advanced technique called Networks from Graph Theory(Mathematics branch). However, this approach would be difficult, also considering that I haven't done Graph Theory before. Alternatively, we can use a simpler approach that's already well developed in statistics.
+
+#### Problem Statement
+
+Suppose that *each* company you apply to, only accepts $1$ candidate for the post, yet the recruiters receive $100$ applications for that particular post. Assume we disregard the fact that you don't meet all the requirements for the job.
+
+**\[ LinkedIn often tags jobs as "Over 100 people clicked apply" or "Over 100 applicants", which motivated the above\]**
+
+## Probabilistic Modelling
+
+By probability theory, your probability of **being employed**( selected by recruiters) is 
+$$ 
+P(\text{Employed}) = \frac{1}{100}
+$$ 
+while remaining **unemployed**(being rejected) is 
+$$
+P(\text{Unemployed})= 1-P(\text{Employed})=\frac{99}{100}.
+$$ 
+Being rejected at one company doesn't mean you'll be rejected at another, and that is to say all your applications are independent of each other(they don't influence another). Now let us model two scenarios:
+
+-   **Scenario A**: The probability of being selected in any application is $P\text({Employed})=\frac{1}{100}$. *What is the probability of employment?*
+
+-   **Scenario B**: The probability of being selected in any application is $P\text({Employed})=\frac{1}{100}$, and $A$ is the number of applications you send out,up to your first *employment offer*. *What is the probability of employment?* Now lets compare what the theoretical probability of employment would be if you make $1,10,50,100,500$ or $1 000$ applications.
+
+### Scenario A
+
+The distribution that shows your rejections per each application $A$ is given by(if you apply to $12$ posts, then $A=12$) : 
+$$
+P(\text{Unemployed}) =\left(1-\frac{1}{100}\right)^A =\left(\frac{99}{100}\right)^A.
+$$ 
+Consequently, the probabilistic random variable representing your chance of employment is 
+$$
+P(\text{Employed}) =1- \left(\frac{99}{100}\right)^A.
+$$ The table below models the scenario above
+
+```{r}
+#| echo: false
+# Cumulative Frequency Function
+library(gt)
+p = 99/100
+nApplications = c(1,10,50,100,500,1000)
+Probability = 1-(p^nApplications)
+employmentModel = tibble::tibble(nApplications,Probability)
+  
+employmentModel %>%
+  gt() %>%
+  fmt_percent(
+    columns = c(Probability),
+    decimals = 2
+  ) %>%
+  tab_header(
+    title = "Theoretical Cumulative Probability",
+    subtitle = "How many applications maximize my employment probability"
+  ) %>%
+  cols_label(
+    nApplications = "No. of Applications",
+    Probability = "Employment Probability(cdf)"
+  ) %>%
+  tab_options(
+    heading.title.font.size = 18,
+    heading.subtitle.font.size = 13,
+    table.font.names = "Arial",
+    column_labels.font.weight = "bold"
+  )
+```
+
+which suggests that $50$ applications might still not be enough, as the probability of being employed would be $39.5%$. With $100$, you're $63.4%$ more likely to be employed. This model has the corresponding graph
+
+```{r}
+#| echo: false
+np = Probability*100
+plot(nApplications, np, xlab = "Number of Applications(A)", ylab = "Probability(%)", main = "Cumulative Probabilities of Employment",pch = 16, col ="blue")
+```
+
+which illustrates an important property - convergence. The cumulative probability plot shows that the more you send out applications, the more likely you are to get a role, i.e\
+$$
+\lim_{A \to\infty} P(\text{Employed})=1.
+$$ 
+***NOTE***: Before you freak out,this does not mean you need to send out a $1 000$ applications to be guaranteed a job. Deeply embedded in these models is *randomness*, the same concept that makes one to be employed with $3$ applications while it takes the other $97$.
+
+### Scenario B
+
+The scenario where you apply until you find the first opportunity is called the **geometric random variable** or alternatively, the geometric distribution. Thus the mathematical representation of this idea is given by 
+$$
+P(\textbf{Employed}) = P(\text{Employed})\times [1-P(\text{Employed})]^{A-1}
+$$ 
+where $P(\textbf{Employed}) \ne P(\text{Employed})$ since $P(\text{Employed})=\frac{1}{100}$ and $P(\textbf{Employed})$ is the probability of all the rejections including the only $1$ successful offer. The table below shows the corresponding probabilities for the fore-mentioned number of applications.
+
+```{r}
+#| echo: false
+# Geometric Random Variable
+p = 1/100
+nApplications = c(1,10,50,100,500,1000)
+Probability = p*((1-p)^(nApplications-1))
+employmentModel = tibble::tibble(nApplications,Probability)
+  
+employmentModel %>%
+  gt() %>%
+  fmt_percent(
+    columns = c(Probability),
+    decimals = 4
+  ) %>%
+  tab_header(
+    title = "Geometric distribution of Empoyability",
+    subtitle = "Probabilities of corresponding applications"
+  ) %>%
+  cols_label(
+    nApplications = "No. of Applications",
+    Probability = "Employment Probability"
+  ) %>%
+  tab_options(
+    heading.title.font.size = 18,
+    heading.subtitle.font.size = 13,
+    table.font.names = "Arial",
+    column_labels.font.weight = "bold"
+  )
+```
+
+This table suggests that if you were to apply to $50$ posts, the probability of being selected on the $50th$ is $0.61%$. We know that the other $49$ posts also rejected you.
+
+The following graph visualizes the information in the table above
+
+```{r}
+#| echo: false
+np = Probability*100
+plot(nApplications, np, xlab = "Number of Applications(A)", ylab = "Probability(%)", main = "Geometric Distribution of Employability",pch = 16, col ="darkcyan")
+```
+
+and this doesn't mean the more you apply, the more you're likely to be rejected. By definition, the Geometric distribution would yield the same results in **Scenario A** and in-turn also claims 
+$$
+P(\textbf{Employed}) = P(\text{Employed})\sum_{A=1} ^{\infty} [1-P(\text{Employed})]^{A-1}=1 .
+$$
+
+## Conclusion
+While the feeling of getting rejection letters and no replies is overwhelming, we oath to remember that it is also difficult for recruiters to select the "best" candidate for the job. The above results does not tell you when you'll be employed, but it provides a lense into the mathematical realm of chance. I tagged this as theoretical although it fully isn't. The $100$ applications are inspired by LinkedIn and this would make it impossible for recruiters to reply to all the applicants unless if they have an advanced software product/system that automated rejection letters to all those who are not selected.
+
+The results of this essay encourages you to strive for the best. It suggests that you should apply to as many posts as you can. And in my opinion, _it is both irrational and daunting to tailor your Resume a $1 000$ times. You don't have all the time in the world to be spending approximately 4 hours daily searching for jobs and job-tailering your resume each time_. Eventually, you will get employed. If Statisticians didn't say your field is saturated, then the bias is attributed to what you consume on social media or the overwhelming feeling.
+***On Randomness*** : the probability of getting a jackpot in a lotto draw is $1$ in $14$ million, yet people still win the Jackpot. It is a _super-rare_ event, yet it can still materialize.
+What stands between you and your employment is destiny-randomness. 
+Now go get rejected some more!
+***In Mathematics we trust.***
+
